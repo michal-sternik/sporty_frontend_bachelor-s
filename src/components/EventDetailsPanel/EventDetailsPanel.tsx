@@ -102,6 +102,7 @@ function EventDetailsPanel() {
   const [options, setOptions] = useState<SearchedUserInfo[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const isChatOpen = useSelector(selectIsChatOpen);
+  const userName = useSelector(selectUserUserName);
   const [isMessageSending, setIsMessageSending] = useState<boolean>(false);
   const messages = useSelector(selectMessages);
   const [messageInputValue, setMessageInputValue] = useState<string>('');
