@@ -13,7 +13,7 @@ const statisticsForeign = {
       username: 'michal123',
       image: {
         publicId: 'zpi/jh6fxqoll1djz6ebw0so',
-        url: 'https://res.cloudinary.com/derwfrklx/image/upload/v1706704005/zpi/jh6fxqoll1djz6ebw0so.jpg',
+        url: 'https://res.cloudinary.com/derwfrklx/image/upload/v1706720773/zpi/oj3waclgqqjottyvdqof.jpg',
       },
     },
     count: 1,

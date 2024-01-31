@@ -13,7 +13,7 @@ const statistics = {
       username: 'patricio12',
       image: {
         publicId: 'zpi/tbmdptjix3rirm1sb76f',
-        url: 'https://res.cloudinary.com/derwfrklx/image/upload/v1702624061/zpi/tbmdptjix3rirm1sb76f.jpg',
+        url: 'https://res.cloudinary.com/derwfrklx/image/upload/v1702622513/zpi/afiz8avftaxy0layqqrg.jpg',
       },
     },
     count: 1,
