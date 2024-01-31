@@ -55,7 +55,6 @@ function ForeignUserProfile() {
   const [achievementList, setAchievementListPreview] = useState<any>();
 
   const [isLoadingStatistics, setIsLoadingStatistics] = useState(false);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [statisticsList, setStatistics] = useState<Statistics>();
   const [barStatistic, setBarStatistic] = useState<any[]>();
 
@@ -442,7 +441,7 @@ function ForeignUserProfile() {
                   </Typography>
                 )}
               </Stack>
-            ) : // <Friend
+            ) : // kod moze zostac uzyty pozniej <Friend
             //   id={statisticsList.favoriteParticipant.userIdentityDto.id}
             //   friendUsername={
             //     statisticsList.favoriteParticipant.userIdentityDto.username
@@ -458,8 +457,6 @@ function ForeignUserProfile() {
                     '.MuiChartsAxis-tickLabel': {
                       transform: 'translateX(5%)',
                       textAnchor: 'start',
-                      // Stylizacja dla elementów z klasą MuiChartsAxis-tickLabel
-                      /* Twój kod stylizacji tutaj */
                     },
                   }}
                   dataset={barStatistic}

@@ -28,7 +28,8 @@ export default function SignUp() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     setIsSubmitted(true);
-    event.preventDefault();
+    return; // for mocking purposes
+    // event.preventDefault(); turned off for mocking purposes
     const data = new FormData(event.currentTarget);
 
     try {

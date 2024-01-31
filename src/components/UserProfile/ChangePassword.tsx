@@ -38,11 +38,11 @@ function ChangePassword() {
         data.get('confirmPassword')!.toString(),
       );
       handleClickVariant(`Hasło zostało zmienione z sukcesem`, 'success');
-      setIsLoading(false);
       navigate('/profile/accountsettings');
     } catch (err: any) {
       convertError(err);
     }
+    setIsLoading(false);
   };
 
   return (

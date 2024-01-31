@@ -72,6 +72,7 @@ import { useAppDispatch } from '../../redux/store';
 import { API_BASE_URL } from '../../constants';
 import { convertError } from '../../utils/errorHandleUtils';
 import RoundedButton from '../CustomButton/RoundedButton';
+import zpiApi from '../../api';
 
 function EventsListPanel() {
   const { eventsMap: mapRef } = useMap();
@@ -231,7 +232,7 @@ function EventsListPanel() {
         setAreEventsLoading(true);
 
         if (!areIncomingMeetingsChosenLocal) {
-          axios
+          zpiApi
             .get(
               `${API_BASE_URL}/meeting/list?southWestLongitude=${
                 desiredBounds[0]
@@ -402,7 +403,7 @@ function EventsListPanel() {
     setAreEventsLoading(true);
 
     if (!areIncomingMeetingsChosenLocal) {
-      axios
+      zpiApi
         .get(
           `${API_BASE_URL}/meeting/list?southWestLongitude=${
             desiredBounds[0]
@@ -535,7 +536,6 @@ function EventsListPanel() {
           setIsInitialised(true);
         });
     }
-    // Anuluj poprzednie zapytanie przy kolejnym renderowaniu komponentu
     return () => abortController.abort();
   }, [
     areIncomingMeetingsChosen,

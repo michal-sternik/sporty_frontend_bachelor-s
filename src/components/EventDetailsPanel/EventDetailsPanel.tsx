@@ -93,8 +93,7 @@ import dancingImage from '../../assets/images/disciplines/dancing.png';
 import gymImage from '../../assets/images/disciplines/gym.png';
 import iceSkatingImage from '../../assets/images/disciplines/ice-skating.png';
 import otherImage from '../../assets/images/disciplines/other.png';
-// import EventsService from '../../services/eventsService';
-// import EventsService from '../../services/eventsService';
+import zpiApi from '../../api';
 
 function EventDetailsPanel() {
   const [inputValue, setInputValue] = useState('');
@@ -343,7 +342,7 @@ function EventDetailsPanel() {
         try {
           const API_TOKEN = localStorage.getItem('token');
 
-          const response = await axios.get(
+          const response = await zpiApi.get(
             `${API_BASE_URL}/meeting/${eventId}`,
             {
               headers: {
@@ -375,8 +374,8 @@ function EventDetailsPanel() {
         if (searchedName.length > 0) {
           const API_TOKEN = localStorage.getItem('token');
 
-          axios
-            .get(`${API_BASE_URL}/friends/search/${searchedName}`, {
+          zpiApi
+            .get(`${API_BASE_URL}/Friends/search/${searchedName}`, {
               headers: {
                 Authorization: `Bearer ${API_TOKEN}`,
               },

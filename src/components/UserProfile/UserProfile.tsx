@@ -19,7 +19,7 @@ import { useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
-import axios from 'axios';
+// import axios from 'axios';
 import EditIcon from '@mui/icons-material/Edit';
 import { BarChart } from '@mui/x-charts/BarChart';
 
@@ -126,8 +126,6 @@ function UserProfile() {
   const fetchAchievementPreview = async () => {
     try {
       setIsLoadingAchievements(true);
-      // eslint-disable-next-line no-debugger
-      debugger;
       const response = await zpiApi.get(
         `${API_BASE_URL}/Achievements/user_achievements`,
         {
@@ -193,7 +191,7 @@ function UserProfile() {
     try {
       setLoading(true);
       const token = localStorage.getItem('token');
-      await axios
+      await zpiApi
         .post(`${API_BASE_URL}/UserDetails/image`, formData, {
           headers: {
             Authorization: `Bearer ${token}`,

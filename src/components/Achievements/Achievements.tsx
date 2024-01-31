@@ -6,7 +6,6 @@ import {
   Typography,
 } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-// import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import FriendsList from '../FriendsList/FriendsList';
 import {
