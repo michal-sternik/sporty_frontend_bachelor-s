@@ -1,6 +1,6 @@
 const statistics = {
-  meetingsOrganized: 4,
-  meetingsParticipated: 0,
+  meetingsOrganized: 5,
+  meetingsParticipated: 4,
   totalMinutesInMeetings: 555,
   favoriteSportDiscipline: {
     sportDiscipline: 'Football',

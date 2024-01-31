@@ -96,7 +96,8 @@ function UserProfile() {
     categoryLists = categoryLists.reverse();
 
     const flattenList = [];
-
+    // eslint-disable-next-line no-debugger
+    debugger;
     const maxLength = Math.max(0, 4);
 
     for (let i = 0; i < maxLength; i += 1) {
@@ -104,6 +105,10 @@ function UserProfile() {
         const categoryAchievements = categoryLists[j];
         if (categoryAchievements.length > 0) {
           flattenList.push(categoryAchievements.pop());
+        }
+        if (flattenList.length >= 4) {
+          setAchievementListPreview(flattenList);
+          return;
         }
       }
     }
@@ -139,6 +144,8 @@ function UserProfile() {
 
   const fetchStatistics = async () => {
     try {
+      // eslint-disable-next-line no-debugger
+      debugger;
       setIsLoadingStatistics(true);
       const response = await axios.get(`${API_BASE_URL}/Statistics`, {
         headers: {

@@ -76,6 +76,10 @@ function ForeignUserProfile() {
         if (categoryAchievements.length > 0) {
           flattenList.push(categoryAchievements.pop());
         }
+        if (flattenList.length >= 4) {
+          setAchievementListPreview(flattenList);
+          return;
+        }
       }
     }
 

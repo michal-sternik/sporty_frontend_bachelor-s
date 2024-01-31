@@ -1,7 +1,6 @@
 import zpiApi from '../api';
 import { FriendInvitationItem, FriendItem, OtherUserInfo } from '../types';
 import { convertError } from '../utils/errorHandleUtils';
-import apiFriends from '../api/mockedData/friends';
 
 class FriendsService {
   public static async getFriendsList(): Promise<FriendItem[]> {
@@ -18,17 +17,16 @@ class FriendsService {
   }
 
   public static async getUsersBySearchPhrase(
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     searchPhrase: string,
   ): Promise<FriendItem[]> {
-    // const apiResponse = await zpiApi.get<any[]>(
-    //   `/Friends/search/${searchPhrase}`,
-    // );
-    // const responseData = apiResponse.data;
+    const apiResponse = await zpiApi.get<any[]>(
+      `/Friends/search/${searchPhrase}`,
+    );
+    const responseData = apiResponse.data;
 
-    const friendItems: FriendItem[] = apiFriends.map((apiData) => ({
+    const friendItems: FriendItem[] = responseData.map((apiData) => ({
       id: apiData.id,
-      friendUsername: apiData.friendUsername,
+      friendUsername: apiData.username,
       image: apiData.image,
     }));
 
