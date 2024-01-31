@@ -114,6 +114,7 @@ function EventDetailsPanel() {
   const { eventId } = useParams();
   const [currentEvent, setCurrentEvent] = useState<Event>();
   const { eventsMap: mapRef } = useMap();
+  const userName = useSelector(selectUserUserName);
   const desiredBounds = useSelector(selectDesiredBounds);
   const userUserName = useSelector(selectUserUserName);
   const navigate = useNavigate();
@@ -1188,7 +1189,13 @@ function EventDetailsPanel() {
                               sx={eventDetailsPanelParticipantsListRedIconStyle}
                             />
                           )}
-                          <NavLink to={`/user/${participant.id}`}>
+                          <NavLink
+                            to={
+                              participant.username === userName
+                                ? `/profile`
+                                : `/user/${participant.id}`
+                            }
+                          >
                             <Typography
                               sx={eventDetailsPanelDescriptionContentStyle}
                             >
