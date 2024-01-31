@@ -6,7 +6,7 @@ import {
   Typography,
 } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import FriendsList from '../FriendsList/FriendsList';
 import {
@@ -21,6 +21,7 @@ import {
 } from './AchievementsStyle';
 import outerStackFriendsInvitationListStyle from '../FriendsInvitationList/FriendsInvitationListStyle';
 import { convertError } from '../../utils/errorHandleUtils';
+import zpiApi from '../../api';
 
 interface AchievementsProps {
   foreign: boolean;
@@ -54,7 +55,7 @@ function Achievements({ foreign }: AchievementsProps) {
     setIsLoading(true);
     try {
       if (foreign) {
-        const response = await axios.get(
+        const response = await zpiApi.get(
           `${API_BASE_URL}/Achievements/${id.friendId}`,
           {
             headers: {
@@ -65,7 +66,7 @@ function Achievements({ foreign }: AchievementsProps) {
 
         setAchievementList(sortAchievements(response.data));
       } else {
-        const response = await axios.get(`${API_BASE_URL}/Achievements`, {
+        const response = await zpiApi.get(`${API_BASE_URL}/Achievements`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },

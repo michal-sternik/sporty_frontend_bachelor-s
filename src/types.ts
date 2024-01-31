@@ -245,7 +245,7 @@ export interface OtherUserInfo {
   lastName: string;
   age: number;
   gender: number;
-  image: Image;
+  image: Image | null;
   recentMeetings: EventShort[];
   friendshipStatusDto: FriendshipStatus;
 }

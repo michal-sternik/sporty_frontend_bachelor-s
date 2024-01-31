@@ -12,8 +12,6 @@ export const getFriendsList = createAsyncThunk(
   // eslint-disable-next-line no-empty-pattern
   async ({}: {}, thunkAPI) => {
     try {
-      // eslint-disable-next-line no-debugger
-      debugger;
       const response = await FriendsService.getFriendsList();
       return response;
     } catch (error: any) {

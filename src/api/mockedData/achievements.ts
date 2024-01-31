@@ -10,7 +10,7 @@ const achievements = [
       {
         id: 'ORGN01',
         description: 'Liczba założonych spotkań: 1',
-        obtained: null,
+        obtained: '2023-12-15T06:09:06.6571328',
       },
       {
         id: 'ORGN05',

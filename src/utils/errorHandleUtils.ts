@@ -8,11 +8,10 @@ const handleClickVariant = (
 };
 
 const convertError = (errors: any) => {
-  // eslint-disable-next-line no-debugger
-  debugger;
-  if (!errors.response.data) {
-    handleClickVariant('Something went wrong', 'error');
-  } else if (!errors.response.data.Errors.length) {
+  handleClickVariant('Backend is off!', 'success');
+  return;
+  // when backend is off we do not handle any api calls
+  if (!errors.response.data.Errors.length) {
     handleClickVariant(errors.response.data.Message, 'error');
   } else if (errors.response.data.Errors !== undefined) {
     const errorTable: string[] = [];

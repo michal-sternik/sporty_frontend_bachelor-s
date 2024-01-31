@@ -15,8 +15,9 @@ import {
 import React, { useEffect, useState } from 'react';
 import FaceRoundedIcon from '@mui/icons-material/FaceRounded';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 import { BarChart } from '@mui/x-charts';
+import { useSelector } from 'react-redux';
 import {
   achievementsListSectionStyle,
   achievementsSectionStyle,
@@ -40,6 +41,8 @@ import { OtherUserInfo, Statistics } from '../../types';
 import { handleClickVariant, convertError } from '../../utils/errorHandleUtils';
 import { API_BASE_URL } from '../../constants';
 import { iconButtonHeaderStyle } from '../Header/HeaderStyle';
+import zpiApi from '../../api';
+import { selectUserUserName } from '../../redux/userSlice';
 
 function ForeignUserProfile() {
   const navigate = useNavigate();
@@ -47,6 +50,7 @@ function ForeignUserProfile() {
 
   const [otherUser, setOtherUser] = useState<OtherUserInfo>();
   const [loading, setLoading] = useState(true);
+  const userName = useSelector(selectUserUserName);
 
   const [achievementList, setAchievementListPreview] = useState<any>();
 
@@ -96,7 +100,7 @@ function ForeignUserProfile() {
 
   const fetchAchievementPreview = async () => {
     try {
-      const response = await axios.get(
+      const response = await zpiApi.get(
         `${API_BASE_URL}/Achievements/${id}/user_achievements`,
         {
           headers: {
@@ -114,7 +118,7 @@ function ForeignUserProfile() {
   const fetchStatistics = async () => {
     try {
       setIsLoadingStatistics(true);
-      const response = await axios.get(`${API_BASE_URL}/Statistics/${id}`, {
+      const response = await zpiApi.get(`${API_BASE_URL}/Statistics/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -390,7 +394,12 @@ function ForeignUserProfile() {
                   <>
                     <ListItemAvatar>
                       <NavLink
-                        to={`/user/${statisticsList.favoriteParticipant.userIdentityDto.id}`}
+                        to={
+                          statisticsList.favoriteParticipant.userIdentityDto
+                            .username === userName
+                            ? '/profile'
+                            : `/user/${statisticsList.favoriteParticipant.userIdentityDto.id}`
+                        }
                       >
                         <Avatar>
                           <IconButton

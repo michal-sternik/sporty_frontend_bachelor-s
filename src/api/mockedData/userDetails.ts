@@ -8,8 +8,8 @@ const userDetails: UserDataInfo = {
   age: 21,
   gender: 0,
   image: {
-    publicId: 'zpi/tbmdptjix3rirm1sb76f',
-    url: 'https://res.cloudinary.com/derwfrklx/image/upload/v1702624061/zpi/tbmdptjix3rirm1sb76f.jpg',
+    publicId: 'zpi/jh6fxqoll1djz6ebw0so',
+    url: 'https://res.cloudinary.com/derwfrklx/image/upload/v1706704005/zpi/jh6fxqoll1djz6ebw0so.jpg',
   },
   hasAdminRole: false,
   recentMeetings: [],

@@ -16,7 +16,7 @@ const apiFriends: any[] = [
     firstName: 'Piotr',
     lastName: 'Zięba',
     image: null,
-    username: 'patrictio12',
+    username: 'pedroalmondo',
   },
 ];
 
