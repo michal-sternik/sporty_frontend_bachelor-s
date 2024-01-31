@@ -3,7 +3,6 @@ import { SxProps } from '@mui/material';
 const achievementsSectionStyle: SxProps = {
   width: '100%',
   borderRadius: '15px',
-  // alignItems: 'center',
   display: 'flex',
   flexDirection: 'column',
   minHeight: { xs: '85%', sm: '60%', md: '50vh' },

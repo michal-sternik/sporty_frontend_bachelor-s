@@ -12,7 +12,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
 import { useSelector } from 'react-redux';
-import axios from 'axios';
+// import axios from 'axios';
 import { MapProvider } from 'react-map-gl';
 import LogIn from './components/LogIn/LogIn';
 import SignUp from './components/SignUp/SignUp';
@@ -49,6 +49,7 @@ import { convertError } from './utils/errorHandleUtils';
 import Posts from './components/Posts/Posts';
 import Post from './components/Post/Post';
 import CreatePost from './components/CreatePost/CreatePost';
+import zpiApi from './api';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -143,7 +144,7 @@ function App() {
   const sortBySelection = useSelector(selectSortBySelection);
 
   useEffect(() => {
-    axios
+    zpiApi
       .get(
         `${API_BASE_URL}/meeting/list?southWestLongitude=${
           desiredBounds[0]

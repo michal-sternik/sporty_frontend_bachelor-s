@@ -1,5 +1,4 @@
 import { IconButton, Stack, Typography } from '@mui/material';
-import axios from 'axios';
 import AddIcon from '@mui/icons-material/Add';
 import React, { useEffect } from 'react';
 import { PersonOutlined } from '@mui/icons-material';
@@ -9,6 +8,8 @@ import { API_BASE_URL } from '../../constants';
 import { useAppDispatch } from '../../redux/store';
 import { selectPosts, setPosts } from '../../redux/notificationSlice';
 import { selectUserHasAdminRole } from '../../redux/userSlice';
+import { convertError } from '../../utils/errorHandleUtils';
+import zpiApi from '../../api';
 
 function Posts() {
   const posts = useSelector(selectPosts);
@@ -18,17 +19,20 @@ function Posts() {
 
   useEffect(() => {
     const API_TOKEN = localStorage.getItem('token');
-
-    axios
-      .get(`${API_BASE_URL}/posts/all?pageNumber=1&pageSize=120`, {
-        headers: {
-          Authorization: `Bearer ${API_TOKEN}`,
-        },
-      })
-      .then((response) => {
-        dispatch(setPosts(response.data.items));
-        navigate(`/posts/${response.data.items[0].id}`);
-      });
+    try {
+      zpiApi
+        .get(`${API_BASE_URL}/posts/all?pageNumber=1&pageSize=120`, {
+          headers: {
+            Authorization: `Bearer ${API_TOKEN}`,
+          },
+        })
+        .then((response) => {
+          dispatch(setPosts(response.data.items));
+          navigate(`/posts/${response.data.items[0].id}`);
+        });
+    } catch (e: any) {
+      convertError(e);
+    }
   }, []);
 
   return (

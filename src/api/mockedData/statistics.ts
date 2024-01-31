@@ -1,5 +1,5 @@
 const statistics = {
-  meetingsOrganized: 5,
+  meetingsOrganized: 1,
   meetingsParticipated: 4,
   totalMinutesInMeetings: 555,
   favoriteSportDiscipline: {
@@ -9,11 +9,11 @@ const statistics = {
   avgParticipantsAge: 54,
   favoriteParticipant: {
     userIdentityDto: {
-      id: 'c96da760-5f25-4ff2-cf49-08dbf0222c0a',
-      username: 'michal123',
+      id: '48d52f6b-1635-4f8a-cf48-08dbf0222c0a',
+      username: 'patricio12',
       image: {
         publicId: 'zpi/tbmdptjix3rirm1sb76f',
-        url: 'https://res.cloudinary.com/derwfrklx/image/upload/v1702624061/zpi/tbmdptjix3rirm1sb76f.jpg',
+        url: 'https://res.cloudinary.com/derwfrklx/image/upload/v1702622513/zpi/afiz8avftaxy0layqqrg.jpg',
       },
     },
     count: 1,

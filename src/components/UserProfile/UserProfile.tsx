@@ -19,7 +19,7 @@ import { useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
-import axios from 'axios';
+// import axios from 'axios';
 import EditIcon from '@mui/icons-material/Edit';
 import { BarChart } from '@mui/x-charts/BarChart';
 
@@ -56,6 +56,7 @@ import { useAppDispatch } from '../../redux/store';
 import { Statistics } from '../../types';
 // import Friend from '../Friend/Friend';
 import { iconButtonHeaderStyle } from '../Header/HeaderStyle';
+import zpiApi from '../../api';
 
 function UserProfile() {
   const navigate = useNavigate();
@@ -96,8 +97,6 @@ function UserProfile() {
     categoryLists = categoryLists.reverse();
 
     const flattenList = [];
-    // eslint-disable-next-line no-debugger
-    debugger;
     const maxLength = Math.max(0, 4);
 
     for (let i = 0; i < maxLength; i += 1) {
@@ -127,7 +126,7 @@ function UserProfile() {
   const fetchAchievementPreview = async () => {
     try {
       setIsLoadingAchievements(true);
-      const response = await axios.get(
+      const response = await zpiApi.get(
         `${API_BASE_URL}/Achievements/user_achievements`,
         {
           headers: {
@@ -144,10 +143,8 @@ function UserProfile() {
 
   const fetchStatistics = async () => {
     try {
-      // eslint-disable-next-line no-debugger
-      debugger;
       setIsLoadingStatistics(true);
-      const response = await axios.get(`${API_BASE_URL}/Statistics`, {
+      const response = await zpiApi.get(`${API_BASE_URL}/Statistics`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -194,7 +191,7 @@ function UserProfile() {
     try {
       setLoading(true);
       const token = localStorage.getItem('token');
-      await axios
+      await zpiApi
         .post(`${API_BASE_URL}/UserDetails/image`, formData, {
           headers: {
             Authorization: `Bearer ${token}`,

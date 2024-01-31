@@ -25,8 +25,6 @@ import { useAppDispatch } from '../../redux/store';
 import {
   boxAvatarHeaderStyle,
   dropMenuHeaderStyle,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  helloUserTypographyStyle,
   iconButtonHeaderStyle,
   innerStackHeaderStyle,
   navLinkLogoStyle,

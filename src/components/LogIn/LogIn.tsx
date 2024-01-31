@@ -32,7 +32,8 @@ export default function LogIn() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     setIsSubmitted(true);
-    event.preventDefault();
+    return; // for mocking purposes
+    // event.preventDefault(); turned off to refresh page after click, for mocking purpose
     const data = new FormData(event.currentTarget);
     try {
       await dispatch(

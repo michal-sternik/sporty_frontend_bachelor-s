@@ -65,7 +65,6 @@ function FriendsList() {
     setCandidatesList([]);
     fetchUsers();
 
-    // Zwracamy pustą funkcję lub funkcję bez efektów ubocznych, aby spełnić wymagania ESLint
     return () => {};
   }, [searchPhrase]);
 

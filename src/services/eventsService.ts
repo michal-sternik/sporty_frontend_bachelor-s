@@ -1,4 +1,3 @@
-/* eslint-disable no-debugger */
 import zpiApi from '../api';
 
 class EventsService {
@@ -7,9 +6,7 @@ class EventsService {
   }
 
   public static async getMeetingInvitations(): Promise<Event[]> {
-    debugger;
-    const x = (await zpiApi.get<Event[]>(`/Meeting/invitations`)).data;
-    return x;
+    return (await zpiApi.get<Event[]>(`/Meeting/invitations`)).data;
   }
 
   public static async joinMeeting(eventId: string): Promise<void> {

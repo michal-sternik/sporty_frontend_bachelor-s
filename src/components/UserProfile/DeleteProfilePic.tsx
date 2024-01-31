@@ -8,23 +8,17 @@ import {
   Avatar,
   IconButton,
   CircularProgress,
-  // ListItemAvatar,
 } from '@mui/material';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import {
-  // boxChangePasswordStyle,
   containerChangePasswordStyle,
   outerStackChangePasswordStyle,
   typographyChangePasswordLabel,
 } from './ChangePasswordStyle';
 import UserDetailsService from '../../services/userDetailsService';
 import { convertError, handleClickVariant } from '../../utils/errorHandleUtils';
-import {
-  // avatarAreaUserInfoStyle,
-  // avatarUserInfoStyle,
-  iconButtonUserInfoStyle,
-} from './UserProfileStyle';
+import { iconButtonUserInfoStyle } from './UserProfileStyle';
 import {
   saveUserPhoto,
   selectUserPhoto,
@@ -51,11 +45,11 @@ function DeleteProfilePic() {
         `You've successfully deleted your profile picture.`,
         'success',
       );
-      setIsLoading(false);
       // navigate('/profile/accountsettings');
     } catch (err: any) {
       convertError(err);
     }
+    setIsLoading(false);
   };
 
   return (

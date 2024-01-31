@@ -122,11 +122,11 @@ function AccountSettings() {
       };
       await UserDetailsService.changeUserDetails(json);
       handleClickVariant(`Dane zostały zmienione z sukcesem`, 'success');
-      setIsLoading(false);
       fetchData();
     } catch (err: any) {
       convertError(err);
     }
+    setIsLoading(false);
   };
 
   return (

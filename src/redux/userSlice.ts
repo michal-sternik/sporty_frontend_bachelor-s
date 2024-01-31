@@ -141,10 +141,9 @@ export const PersonSlice = createSlice({
         state.userName = userData.username;
         state.emailAddress = userData.email;
         state.hasAdminRole = userData.hasAdminRole;
-        // state.image = userData.image ?? { publicId: '', url: '' }; // Ustawienie wartości domyślnej dla image
         state.image = userData.image
           ? { publicId: userData.image.publicId, url: userData.image.url }
-          : { publicId: '', url: '' }; // Ustawienie wartości domyślnej dla image
+          : { publicId: '', url: '' }; // ustawienie wartości domyślnej dla image
         state.recentMeetings = userData.recentMeetings[0]
           ? [
               {
@@ -169,7 +168,7 @@ export const PersonSlice = createSlice({
         state.token = localStorage.getItem('token')!;
         state.image = userData.image
           ? { publicId: userData.image.publicId, url: userData.image.url }
-          : { publicId: '', url: '' }; // Ustawienie wartości domyślnej dla image
+          : { publicId: '', url: '' }; // ustawienie wartości domyślnej dla image
       });
   },
 });
