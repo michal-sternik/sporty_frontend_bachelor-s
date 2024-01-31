@@ -115,7 +115,6 @@ function EventDetailsPanel() {
   const { eventId } = useParams();
   const [currentEvent, setCurrentEvent] = useState<Event>();
   const { eventsMap: mapRef } = useMap();
-  const userName = useSelector(selectUserUserName);
   const desiredBounds = useSelector(selectDesiredBounds);
   const userUserName = useSelector(selectUserUserName);
   const navigate = useNavigate();
