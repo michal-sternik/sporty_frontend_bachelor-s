@@ -2,6 +2,7 @@
 # Project Title
 
 Frontend for web application "Sporty" as our Bachelor's degree project.
+https://spor-ty.vercel.app/events
 
 
 
